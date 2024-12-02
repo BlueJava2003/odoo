@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <record id="hr_attendance_check_out_cron" model="ir.cron">
-            <field name="name">Attendance: Automatically check-out employees</field>
-            <field name="model_id" ref="model_hr_attendance"/>
+    <data noupdate="1">
+        <!-- Cron Job: Automatically Check-Out Employees -->
+        <record id="cron_auto_checkout" model="ir.cron">
+            <field name="name">Auto Check-Out for Employees</field>
+            <field name="model_id" ref="hr_attendance.model_hr_attendance"/>
             <field name="state">code</field>
             <field name="code">model._cron_auto_check_out()</field>
             <field name="interval_number">4</field>
             <field name="interval_type">hours</field>
         </record>
 
-        <record id="hr_attendance_absence_cron" model="ir.cron">
-            <field name="name">Attendance: Detect Absences for employees</field>
-            <field name="model_id" ref="model_hr_attendance"/>
+        <!-- Cron Job: Detect Employee Absences -->
+        <record id="cron_detect_absence" model="ir.cron">
+            <field name="name">Detect Employee Absences</field>
+            <field name="model_id" ref="hr_attendance.model_hr_attendance"/>
             <field name="state">code</field>
             <field name="code">model._cron_absence_detection()</field>
             <field name="interval_number">4</field>
