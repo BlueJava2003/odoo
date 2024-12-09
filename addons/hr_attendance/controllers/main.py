@@ -180,8 +180,6 @@ class HrAttendance(http.Controller):
         return self._get_user_attendance_data(employee)
 
     def has_password(self):
-        # With this method we try to know whether it's the user is on trial mode or not.
-        # We assume that in trial, people have not configured their password yet and their password should be empty.
         request.env.cr.execute(
             SQL('''
                 SELECT COUNT(password)
