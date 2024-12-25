@@ -1,0 +1,11 @@
+<odoo>
+    <record id="group_department_manager" model="res.groups">
+        <field name="name">Department Manager</field>
+        <field name="category_id" ref="base.module_category_hr"/>
+    </record>
+
+    <record id="group_department_user" model="res.groups">
+        <field name="name">Department User</field>
+        <field name="category_id" ref="base.module_category_hr"/>
+    </record>
+</odoo>

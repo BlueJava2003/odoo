@@ -1,0 +1,37 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_department_tree" model="ir.ui.view">
+        <field name="name">department.tree</field>
+        <field name="model">department.management</field>
+        <field name="type">tree</field> <!-- Đã thêm -->
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/> <!-- Đảm bảo 'name' tồn tại trong model -->
+                <field name="manager_id"/> <!-- Đảm bảo 'manager_id' tồn tại trong model -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_department_form" model="ir.ui.view">
+        <field name="name">department.form</field>
+        <field name="model">department.management</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/> <!-- Đảm bảo 'name' tồn tại trong model -->
+                        <field name="manager_id"/> <!-- Đảm bảo 'manager_id' tồn tại trong model -->
+                        <field name="description"/> <!-- Thêm field bổ sung nếu cần -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_department_root" name="Departments" sequence="10"/>
+    <menuitem id="menu_department_management" name="Manage Departments" parent="menu_department_root"
+              action="action_department_management"/>
+</odoo>
